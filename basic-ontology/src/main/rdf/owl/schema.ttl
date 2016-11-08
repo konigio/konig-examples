@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://schema.org/> a owl:Ontology ;
+  rdfs:label "Schema.org" ;
+  rdfs:comment """
+  	A vocabulary developed by Google, Microsoft, Yahoo and others through a community 
+  	process to promote structured data on the Internet, on web pages, in email messages, and beyond.
+  """
+  .
+  
+schema:Action
+  rdf:type owl:Class ;
+  rdfs:comment """
+  	An action performed by a direct agent and indirect participants upon a direct object. 
+	  Optionally happens at a location with the help of an inanimate instrument. The execution of the action 
+	  may produce a result. Specific action sub-type documentation specifies the exact expectation of each 
+	  argument/role.
+	""" ;
+  rdfs:label "Action" ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+schema:Person
+  rdf:type owl:Class ;
+  rdfs:comment "A person (alive, dead, undead, or fictional)." ;
+  rdfs:label "Person" 
+.
+
+schema:Product
+  rdf:type owl:Class ;
+  rdfs:comment """
+  	Any offered product or service. For example: a pair of shoes; a concert ticket; 
+  	the rental of a car; a haircut; or an episode of a TV show streamed online.
+  """ ;
+  rdfs:label "Product" 
+. 
+
+schema:SellAction
+  rdf:type owl:Class ;
+  rdfs:comment """
+  	The act of taking money from a buyer in exchange for goods or services rendered. 
+  	An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction.
+  """ ;
+  rdfs:label "Sell action" ;
+  rdfs:subClassOf schema:TradeAction ;
+.
+
+schema:TradeAction
+  rdf:type owl:Class ;
+  rdfs:comment """
+	  The act of participating in an exchange of goods and services for monetary compensation. 
+	  An agent trades an object, product or service with a participant in exchange for a one time
+	  or periodic payment.
+  """ ;
+  rdfs:label "Trade action" ;
+  rdfs:subClassOf schema:Action ;
+.

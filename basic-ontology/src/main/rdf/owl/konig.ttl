@@ -1,0 +1,13 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix konig: <http://www.konig.io/ns/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.konig.io/ns/core/> a owl:Ontology ;
+  rdfs:label "Konig Core Vocabulary" ;
+  rdfs:comment """
+  	A vocabulary for semantic modeling, concept mapping and ontology-based engineering.
+  """
+  .
+  
