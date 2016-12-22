@@ -2,7 +2,7 @@
 This repository contains examples that illustrate the use of Konig tools.
 
 ## <a name"GetStarted"></a>Getting started
-To work through the examples in this repository, you will need install the
+To work through the examples in this repository, you will need to install the
 Git client and the Maven build tool.
 
 Here are the relevant links to get started:
