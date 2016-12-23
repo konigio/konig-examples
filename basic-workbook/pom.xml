@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.konig.examples</groupId>
+  <artifactId>basic-ontology</artifactId>
+  <version>1.0.0</version>
+  <name>Basic Ontology</name>
+  
+  <properties>
+  	<konig.version>2.0.0-5</konig.version>
+  </properties>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+	  		<groupId>io.konig</groupId>
+	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
+	  		<version>${konig.version}</version>
+	  	
+	  		<executions>
+	  			<execution>
+		  			<phase>generate-sources</phase>
+		  			<goals>
+		  				<goal>generate</goal>
+		  			</goals>
+						<configuration>
+							<workbookFile>${basedir}/src/basic-workbook.xlsx</workbookFile>
+			  		  <owlOutDir>${basedir}/target/generated/src/rdf/owl</owlOutDir>
+			  		  <shapesOutDir>${basedir}/target/generated/src/rdf/shapes</shapesOutDir>
+			  		</configuration>		  			
+		  			
+	  			</execution>
+	  		</executions>
+  		</plugin>
+  		
+
+ 			<plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <descriptor>src/assembly/dep.xml</descriptor>
+        </configuration>
+        <executions>
+          <execution>
+            <id>create-archive</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>  			
+  			
+			<!-- Skip default jar packaging -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase/>
+          </execution>
+        </executions>
+      </plugin>		
+		  		
+  	</plugins>
+  </build>
+</project>
