@@ -2,7 +2,7 @@
   <parent>
     <groupId>io.konig</groupId>
     <artifactId>konig-examples</artifactId>
-    <version>1.0.0-1</version>
+    <version>1.0.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   
@@ -21,7 +21,7 @@
 	  			<aliasNamespace>http://example.com/ns/alias/</aliasNamespace>
 	  			<baseIRI>http://example.com/shapes/sql/</baseIRI>
 	  			<sourceDir>src/main/sql/</sourceDir>
-	  			<outDir>target/generated/src/rdf/</outDir>
+	  			<outDir>target/generated/src/rdf/shapes</outDir>
 	  			
 	  			<namespaces>
 	  				<Namespace>
@@ -158,55 +158,6 @@
       </plugin>
         			
   	</plugins>
-  	<pluginManagement>
-  		<plugins>
-  			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-  			<plugin>
-  				<groupId>org.eclipse.m2e</groupId>
-  				<artifactId>lifecycle-mapping</artifactId>
-  				<version>1.0.0</version>
-  				<configuration>
-  					<lifecycleMappingMetadata>
-  						<pluginExecutions>
-  							<pluginExecution>
-  								<pluginExecutionFilter>
-  									<groupId>io.konig</groupId>
-  									<artifactId>
-  										konig-sql-maven-plugin
-  									</artifactId>
-  									<versionRange>
-  										[2.0.0-5,)
-  									</versionRange>
-  									<goals>
-  										<goal>generate</goal>
-  									</goals>
-  								</pluginExecutionFilter>
-  								<action>
-  									<ignore></ignore>
-  								</action>
-  							</pluginExecution>
-  							<pluginExecution>
-  								<pluginExecutionFilter>
-  									<groupId>io.konig</groupId>
-  									<artifactId>
-  										konig-sql-shape-maven-plugin
-  									</artifactId>
-  									<versionRange>
-  										[2.0.0-5,)
-  									</versionRange>
-  									<goals>
-  										<goal>generate</goal>
-  									</goals>
-  								</pluginExecutionFilter>
-  								<action>
-  									<ignore></ignore>
-  								</action>
-  							</pluginExecution>
-  						</pluginExecutions>
-  					</lifecycleMappingMetadata>
-  				</configuration>
-  			</plugin>
-  		</plugins>
-  	</pluginManagement>
+  	
   </build>
 </project>

@@ -2,17 +2,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.konig</groupId>
   <artifactId>konig-examples</artifactId>
-  <version>1.0.0-1</version>
+  <version>1.0.0</version>
   <name>Konig Examples</name>
   <description>The parent project from which all the konig examples are built</description>
   <url>http://developers.konig.io/</url>
   <packaging>pom</packaging>
   <properties>
-  	<konig.version>${project.version}</konig.version>
   	<license.licenseName>apache_v2</license.licenseName>
   	<license.inceptionYear>2015</license.inceptionYear>
   	<license.organizationName>Gregory McFall</license.organizationName>
-  	<konig.version>2.0.0-5</konig.version>
+  	<konig.version>2.0.0-6</konig.version>
   </properties>
   
   <licenses>
