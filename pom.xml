@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.konig</groupId>
+  <artifactId>konig-examples</artifactId>
+  <version>1.0.0-1</version>
+  <name>Konig Examples</name>
+  <description>The parent project from which all the konig examples are built</description>
+  <url>http://developers.konig.io/</url>
+  <packaging>pom</packaging>
+  <properties>
+  	<konig.version>${project.version}</konig.version>
+  	<license.licenseName>apache_v2</license.licenseName>
+  	<license.inceptionYear>2015</license.inceptionYear>
+  	<license.organizationName>Gregory McFall</license.organizationName>
+  	<konig.version>2.0.0-5</konig.version>
+  </properties>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <scm>
+    <url>scm:git:ssh://git@github.com/konigio/konig-examples.git</url>
+    <connection>scm:git:ssh://git@github.com/konigio/konig-examples.git</connection>  	
+    <developerConnection>scm:git:ssh://git@github.com/konigio/konig-examples.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+  
+  <modules>
+  	<module>sql-shape</module>
+  </modules>
+ 
+  <developers>
+    <developer>
+      <id>gmcfall</id>
+      <name>Greg McFall</name>
+      <email>gregory.mcfall@gmail.com</email>
+    </developer>
+  </developers>
+  
+</project>
