@@ -1,0 +1,13 @@
+{
+	"id" : "http://example.com/work/XoYfXNEUMDCJlo2",
+	"type" : "CreativeWork",
+	"name" : "Ribosomes: The Protein Factories",
+	"dateCreated" : "2017-04-07",
+	"hasPart" : [{
+			"id" : "http://example.com/work/nV4Zx7sMd7anES1",
+			"type" : "VideoObject"
+	} , {
+		"id" : "http://example.com/work/gvvGySOw0OJWnJR" ,
+		"type" : "ImageObject"
+	}]
+}
