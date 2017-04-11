@@ -3,8 +3,8 @@ package io.konig.example.io.json;
 import java.io.InputStream;
 import java.io.StringWriter;
 
-import com.example.io.canonical.schema.CreativeWorkJsonReader;
-import com.example.io.shapes.CreativeWorkShapeJsonWriter;
+import com.example.io.reader.schema.CreativeWorkJsonReader;
+import com.example.io.writer.shape.CreativeWorkShapeJsonWriter;
 import com.example.model.schema.CreativeWork;
 
 public class JsonIoExampleApp {

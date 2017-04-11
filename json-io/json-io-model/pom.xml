@@ -27,13 +27,26 @@
 	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
 	  		<version>${konig.version}</version>
 	  		<configuration>
-	  			<workbookFile>${basedir}/src/json-io.xlsx</workbookFile>
-	  			<owlOutDir>${basedir}/target/generated/src/rdf/owl</owlOutDir>
-	  			<shapesOutDir>${basedir}/target/generated/src/rdf/shapes</shapesOutDir>
-	  			<sourceDir>${basedir}/target/generated/src/rdf</sourceDir>
-	  			<javaDir>${basedir}/target/generated/src/main/java</javaDir>
-	  			<javaPackageRoot>com.example</javaPackageRoot>
-	  			<generateCanonicalJsonReaders>true</generateCanonicalJsonReaders>
+	  			<workbookProcessor>
+		  			<workbookFile>${basedir}/src/json-io.xlsx</workbookFile>
+		  			<owlOutDir>${basedir}/target/generated/src/rdf/owl</owlOutDir>
+		  			<shapesOutDir>${basedir}/target/generated/src/rdf/shapes</shapesOutDir>
+	  			</workbookProcessor>
+	  			<rdfSourceDir>${basedir}/target/generated/src/rdf</rdfSourceDir>
+	  			<javaCodeGenerator>
+	  				<javaDir>${basedir}/target/generated/src/main/java</javaDir>
+		  			<packageRoot>com.example</packageRoot>
+		  			<generateCanonicalJsonReaders>true</generateCanonicalJsonReaders>
+	  			</javaCodeGenerator>
+	  			<plantUML>
+	  				<classDiagramFile>${basedir}/target/generated/system/domain.plantuml</classDiagramFile>
+		  			<showAttributes>true</showAttributes>
+		  			<showAssociations>true</showAssociations>
+		  			<showSubClassOf>true</showSubClassOf>
+		  			<includeClass>
+		  				<param>test:KitchenSink</param>
+		  			</includeClass>
+	  			</plantUML>
 	  		</configuration>
 	  		<executions>
 	  			<execution>
