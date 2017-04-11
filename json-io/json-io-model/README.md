@@ -9,6 +9,7 @@ UML Class Diagram.
 ![Class Diagram](images/classDiagram.png)
 
 In addition, we generate source code for the  `KitchenSink` class shown below.
+
 ![KitchenSink Class Diagram](images/KitchenSink.png)  
 
 This
