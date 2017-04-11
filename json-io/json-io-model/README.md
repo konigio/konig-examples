@@ -19,31 +19,30 @@ The Maven POM file contains the following plugin configuration:
 
 ```
 <plugin>
-	  		<groupId>io.konig</groupId>
-	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
-	  		<version>${konig.version}</version>
-	  		<configuration>
-	  			<workbookProcessor>
-		  			<workbookFile>${basedir}/src/json-io.xlsx</workbookFile>
-		  			<owlOutDir>${basedir}/target/generated/src/rdf/owl</owlOutDir>
-		  			<shapesOutDir>${basedir}/target/generated/src/rdf/shapes</shapesOutDir>
-	  			</workbookProcessor>
-	  			<rdfSourceDir>${basedir}/target/generated/src/rdf</rdfSourceDir>
-	  			<javaCodeGenerator>
-	  				<javaDir>${basedir}/target/generated/src/main/java</javaDir>
-		  			<packageRoot>com.example</packageRoot>
-		  			<generateCanonicalJsonReaders>true</generateCanonicalJsonReaders>
-	  			</javaCodeGenerator>
-	  		</configuration>
-	  		<executions>
-	  			<execution>
-		  			<phase>generate-sources</phase>
-		  			<goals>
-		  				<goal>generate</goal>
-		  			</goals>
-	  			</execution>
-	  		</executions>
-  		</plugin>
+  <groupId>io.konig</groupId>
+  <artifactId>konig-schemagen-maven-plugin</artifactId>
+  <version>${konig.version}</version>
+  <configuration>
+    <workbookProcessor>
+      <workbookFile>${basedir}/src/json-io.xlsx</workbookFile>
+      <owlOutDir>${basedir}/target/generated/src/rdf/owl</owlOutDir>
+      <shapesOutDir>${basedir}/target/generated/src/rdf/shapes</shapesOutDir>
+    </workbookProcessor>
+    <rdfSourceDir>${basedir}/target/generated/src/rdf</rdfSourceDir>
+      <javaDir>${basedir}/target/generated/src/main/java</javaDir>
+      <packageRoot>com.example</packageRoot>
+      <generateCanonicalJsonReaders>true</generateCanonicalJsonReaders>
+    </javaCodeGenerator>
+  </configuration>
+  <executions>
+    <execution>
+      <phase>generate-sources</phase>
+      <goals>
+        <goal>generate</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
 ```      
 
 The semantic model is described in a workbook specified by the `workbookFile`
