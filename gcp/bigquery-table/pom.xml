@@ -35,14 +35,7 @@
 	  			</workbook>
 	  			<googleCloudPlatform>
 	  				<enumShapeNameTemplate>http://example.com/shapes/Bq{targetClass.localName}Shape</enumShapeNameTemplate>
-	  			</googleCloudPlatform>
-	  			<plantUML>
-	  				<classDiagram>
-	  					<file>${basedir}/target/generated/images/classDiagram.plantuml</file>
-	  					<showEnumerationClasses>true</showEnumerationClasses>
-	  				</classDiagram>
-	  			</plantUML>
-	  			
+	  			</googleCloudPlatform>	  			
 	  		</configuration>
 	  		<executions>
 	  			<execution>
