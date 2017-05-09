@@ -8,7 +8,7 @@
 @prefix org2 : <http://example.com/shapes/v2/org/> .
 
 @tableShapeIriTemplate <http://example.com/shapes/v1/{targetClassNamespacePrefix}/{targetClassLocalName}Shape> .
-@columnPredicateIriTemplate <{alias}{columnName}/> .
+@columnNamespace alias .
 @tableTargetShapeIriTemplate <http://example.com/shapes/v2/{targetClassNamespacePrefix}/{targetClassLocalName}Shape> .
 
 CREATE TABLE registrar.Person (

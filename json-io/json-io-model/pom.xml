@@ -22,31 +22,46 @@
   <build>
   	<sourceDirectory>${basedir}/target/generated/src/main/java</sourceDirectory>
   	<plugins>
+  	
+			
+  	
   		<plugin>
 	  		<groupId>io.konig</groupId>
 	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
 	  		<version>${konig.version}</version>
 	  		<configuration>
-	  			<workbookProcessor>
+	  			<defaults>
+	  				<rdfDir>${basedir}/target/generated/src/rdf</rdfDir>
+	  			</defaults>
+	  			<workbook>
 		  			<workbookFile>${basedir}/src/json-io.xlsx</workbookFile>
-		  			<owlOutDir>${basedir}/target/generated/src/rdf/owl</owlOutDir>
-		  			<shapesOutDir>${basedir}/target/generated/src/rdf/shapes</shapesOutDir>
-	  			</workbookProcessor>
+	  			</workbook>
 	  			<rdfSourceDir>${basedir}/target/generated/src/rdf</rdfSourceDir>
 	  			<javaCodeGenerator>
 	  				<javaDir>${basedir}/target/generated/src/main/java</javaDir>
 		  			<packageRoot>com.example</packageRoot>
 		  			<generateCanonicalJsonReaders>true</generateCanonicalJsonReaders>
 	  			</javaCodeGenerator>
+	  			<jsonld>
+	  				<jsonldDir>${basedir}/target/generated/src/json-ld</jsonldDir>
+	  				<uriTemplate>http://example.com/jsonld/{shapeLocalName}</uriTemplate>
+	  			</jsonld>
+	  			<jsonSchema>
+	  				<jsonSchemaDir>${basedir}/target/generated/src/json-schema</jsonSchemaDir>
+	  				<uriTemplate>http://example.com/jsonschema/{shapeLocalName}</uriTemplate>
+	  			</jsonSchema>
 	  			<plantUML>
-	  				<classDiagramFile>${basedir}/target/generated/system/domain.plantuml</classDiagramFile>
-		  			<showAttributes>true</showAttributes>
-		  			<showAssociations>true</showAssociations>
-		  			<showSubClassOf>true</showSubClassOf>
-		  			<includeClass>
-		  				<param>test:KitchenSink</param>
-		  			</includeClass>
+	  				<classDiagram>
+		  				<file>${basedir}/target/generated/system/domain.plantuml</file>
+			  			<showAttributes>true</showAttributes>
+			  			<showAssociations>true</showAssociations>
+			  			<showSubClassOf>true</showSubClassOf>
+			  			<includeClass>
+			  				<param>test:KitchenSink</param>
+			  			</includeClass>
+		  			</classDiagram>
 	  			</plantUML>
+	  			<rdfOutput/>
 	  		</configuration>
 	  		<executions>
 	  			<execution>

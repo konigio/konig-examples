@@ -1,0 +1,15 @@
+{
+  "id" : "http://example.com/Person/AuYHtltw",
+  "crmId" : "AuYHtltw",
+  "givenName" : "Alice",
+  "familyName" : "Jones",
+  "modified" : "2017-04-17T09:46:15.316Z",
+  "contactPoint" : [ {
+    "contactType" : "Home",
+    "email" : "alice@example.com",
+    "telephone" : "555-123-4567"
+  }, {
+    "contactType" : "Work",
+    "email" : "alice.jones@acme.com"
+  }]
+}	
