@@ -1,0 +1,5 @@
+{
+  "name" : "originmusicalbumshape-{gcpBucketSuffix}",
+  "location" : "us",
+  "storageClass" : "multi_regional"
+}

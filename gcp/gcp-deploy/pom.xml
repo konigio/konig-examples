@@ -20,47 +20,23 @@
 		</dependency>  
 	</dependencies>
   <build>
-  	<sourceDirectory>${basedir}/target/generated/src/main/java</sourceDirectory>
+  	
   	<plugins>
-  		<plugin>
+  		
+ 			<plugin>
 	  		<groupId>io.konig</groupId>
 	  		<artifactId>konig-gcp-deploy-maven-plugin</artifactId>
 	  		<version>${konig.version}</version>
-	  		<configuration>
-	  			<action>create</action>
-	  			<googleCloudPlatform>
-	  				<projectId>pearson.core.dev</projectId>
-	  				<gcpDir>${basedir}/target/generated/gcp</gcpDir>
-	  				<datasetsDir>${basedir}/target/generated/gcp/bigquery/dataset</datasetsDir>
-	  			</googleCloudPlatform>	  			
-	  		</configuration>
+	  		
 	  		<executions>
 	  			<execution>
-		  			<phase>generate-sources</phase>
+		  			<phase>install</phase>
 		  			<goals>
 		  				<goal>gcpDeploy</goal>
 		  			</goals>
 	  			</execution>
 	  		</executions>
   		</plugin>
-  		
-  		
- 			<plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.5.3</version>
-        <configuration>
-          <descriptor>src/assembly/dep.xml</descriptor>
-        </configuration>
-        <executions>
-          <execution>
-            <id>create-archive</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>  	
   		
   	</plugins>
   </build>
