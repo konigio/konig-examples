@@ -51,7 +51,6 @@
 	  				<googleCloudPlatform>
 	  					<dataServices/>
 	  				</googleCloudPlatform>
-	  				<googleCloudPlatformDeployment/>
 	  				<dataCatalog>
 	  					<contentSystem>
 	  						<baseURL>https://pearson-docs.appspot.com/content/</baseURL>
