@@ -50,6 +50,7 @@
 	  				</java>
 	  				<googleCloudPlatform>
 	  					<dataServices/>
+	  					<deployment/>
 	  				</googleCloudPlatform>
 	  				<dataCatalog>
 	  					<contentSystem>
