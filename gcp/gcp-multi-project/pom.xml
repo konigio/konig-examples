@@ -39,6 +39,9 @@
 	  				<workbook>
 	  					<workbookFile>${basedir}/src/multi-project.xlsx</workbookFile>
 	  				</workbook>
+	  				<jsonSchema>
+	  					<uriTemplate>http://example.com/json-schema/{shapeLocalName}</uriTemplate>
+	  				</jsonSchema>
 	  				<java>
 	  					<filter>
 	  						<exclude>

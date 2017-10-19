@@ -10,6 +10,7 @@ separately.  Here's a list of the child projects that will be generated:
 - demo-data-catalog
 - demo-gcp-deploy
 - demo-gcp-model
+- demo-json-schema
 - demo-java-model
 - demo-rdf-model
 
@@ -53,6 +54,9 @@ The key element of this POM file is the Konig Schema generator plugin, which is 
 			<workbook>
 				<workbookFile>${basedir}/src/multi-project.xlsx</workbookFile>
 			</workbook>
+			<jsonSchema>
+	  		<uriTemplate>http://example.com/json-schema/{shapeLocalName}</uriTemplate>
+			</jsonSchema>
 			<java>
 				<filter>
 					<exclude>
