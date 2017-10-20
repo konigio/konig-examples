@@ -88,3 +88,59 @@ The key element of this POM file is the Konig Schema generator plugin, which is 
 	</executions>
 </plugin>
 ```
+
+### Workbook 
+
+The Multi-project configuration must specify the location of a workbook in Microsoft Excel format (*.xlsx) 
+which contains a description of your semantic model.  This file is specified as shown in the following
+snippet:
+
+```
+			<workbook>
+				<workbookFile>${basedir}/src/multi-project.xlsx</workbookFile>
+			</workbook>
+
+```
+
+### JSON Schema
+If you want a child project that generates JSON Schema for all of your SHACL shapes, then add an element
+to your configuration like this...
+
+```
+			<jsonSchema>
+	  		<uriTemplate>http://example.com/json-schema/{shapeLocalName}</uriTemplate>
+			</jsonSchema>
+```
+
+Each JSON Schema is assigned an `id` whose value is a fully-qualified URI.  This URI is generated
+based on a template that you supply.  The template may include any of the following variables 
+inside curly braces:
+
+- `shapeId`: The fully-qualified IRI for the Shape, such as `http://example.com/shapes/PersonShape`.
+- `shapeLocalName`:  Just the local name portion of the Shape IRI, such as `PersonShape`.
+- `shapeNamespacePrefix`: The preferred prefix for the Shape namespace.  For instance, you might have defined `shape` as the preferred namespace prefix for the namespace `http://example.com/shapes/".
+- `targetClassId`: The fully-qualified IRI for the target class of your Shape.
+- `targetClassLocalName`: The local name portion of the target class IRI.
+- `targetClassNamespacePrefix`: The preferred prefix for the namespace within which the target class is defined.
+
+### Data Catalog
+If you want a child project that generates Data Catalog resources, then add a configuration element like this...
+
+```
+			<dataCatalog>
+				<contentSystem>
+					<baseURL>https://pearson-docs.appspot.com/content/</baseURL>
+					<bundleName>demo</bundleName>
+					<bundleVersion>1.0.0</bundleVersion>
+				</contentSystem>
+			</dataCatalog>
+```
+
+The entry point to your Data Catalog will be published to an address of the form:
+
+```
+	{baseURL}/{bundleName}/{bundleVersion}/index.html
+```
+
+
+			
