@@ -3,7 +3,7 @@
   <groupId>io.konig.examples</groupId>
   <artifactId>gcp-deploy</artifactId>
   <version>1.0.0</version>
-  <name>Konig Example: Google Cloud Platform Deployment</name>
+  <name>Google Cloud Platform Deployment Demo</name>
   
   <properties>
     <maven.compiler.target>1.7</maven.compiler.target>
@@ -20,23 +20,43 @@
 		</dependency>  
 	</dependencies>
   <build>
-  	
+  	<sourceDirectory>${basedir}/target/generated/src/main/java</sourceDirectory>
   	<plugins>
-  		
- 			<plugin>
+  		<plugin>
 	  		<groupId>io.konig</groupId>
-	  		<artifactId>konig-gcp-deploy-maven-plugin</artifactId>
+	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
 	  		<version>${konig.version}</version>
-	  		
+	  		<configuration>
+	  			<multiProject>
+	  			
+	  				<baseDir>${basedir}/../generated</baseDir>
+	  				<groupId>com.example</groupId>
+	  				<artifactId>gcp-deploy</artifactId>
+	  				<version>1.0.0</version>
+	  				<name>GCP Deployment Demo</name>
+	  				<konigVersion>${konig.version}</konigVersion>
+	  				
+	  				<workbook>
+	  					<workbookFile>${basedir}/src/gcp-deploy.xlsx</workbookFile>
+	  				</workbook>
+	  				
+	  				<googleCloudPlatform>
+	  					<deployment/>
+	  				</googleCloudPlatform>
+	  				
+	  			</multiProject>
+	  		</configuration>
 	  		<executions>
 	  			<execution>
-		  			<phase>install</phase>
+		  			<phase>generate-sources</phase>
 		  			<goals>
-		  				<goal>gcpDeploy</goal>
+		  				<goal>generate</goal>
 		  			</goals>
 	  			</execution>
 	  		</executions>
   		</plugin>
+  		
+  		
   		
   	</plugins>
   </build>
