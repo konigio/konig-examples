@@ -48,23 +48,7 @@
 	  		</executions>
   		</plugin>
   		
-  		<plugin>
-	  		<groupId>io.konig</groupId>
-	  		<artifactId>konig-transform-maven-plugin</artifactId>
-	  		<version>${konig.version}</version>
-	  		<configuration>
-	  			<shapesDir>target/generated/rdf</shapesDir>
-	  			<outDir>target/generated/gcp/bigquery/scripts</outDir>
-	  		</configuration>
-	  		<executions>
-	  			<execution>
-		  			<phase>generate-sources</phase>
-		  			<goals>
-		  				<goal>generate</goal>
-		  			</goals>
-	  			</execution>
-	  		</executions>
-  		</plugin>
+  	
   		
  			<plugin>
         <artifactId>maven-assembly-plugin</artifactId>

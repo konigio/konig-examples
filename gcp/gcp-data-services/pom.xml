@@ -35,8 +35,8 @@
 	  			</workbook>
 	  			<googleCloudPlatform>
 	  				<enumShapeNameTemplate>http://example.com/shapes/Bq{targetClass.localName}Shape</enumShapeNameTemplate>
+	  				<dataServices/>	  			
 	  			</googleCloudPlatform>
-	  			<dataServices/>	  			
 	  		</configuration>
 	  		<executions>
 	  			<execution>

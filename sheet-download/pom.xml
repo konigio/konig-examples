@@ -27,7 +27,7 @@
 	  		<artifactId>konig-google-download-maven-plugin</artifactId>
 	  		<version>${konig.version}</version>
 	  		<configuration>
-	  			<documentId>12xl8ORLPTq9CChRCQlNTfPNd4C77iRSrwaXcIIxZb8Q</documentId>
+	  			<documentId>1Rdn3KCq2vxmyYUi0---UVB55IqtcC1zH6q-V9QCVOK8</documentId>
 	  			<saveAs>${basedir}/target/generated/data-model.xlsx</saveAs>
 	  		</configuration>
 				<executions>
@@ -49,7 +49,9 @@
 	  			</defaults>
 	  			<workbook>
 		  			<workbookFile>${basedir}/target/generated/data-model.xlsx</workbookFile>
-	  			</workbook>			
+		  			<failOnErrors>true</failOnErrors>
+	  			</workbook>	
+	  			<googleCloudPlatform/>
 	  		</configuration>
 	  		<executions>
 	  			<execution>
@@ -60,8 +62,7 @@
 	  			</execution>
 	  		</executions>
   		</plugin>
-  		
-  		
+ 		
  			<plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <version>2.5.3</version>
