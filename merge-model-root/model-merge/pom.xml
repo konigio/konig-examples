@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.konig.examples</groupId>
+  <artifactId>model-merge</artifactId>
+  <version>1.0.0</version>
+  <name>Model Merge</name>
+  
+  <properties>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+  	<konig.version>2.0.0-8-SNAPSHOT</konig.version>
+  </properties>
+  
+  
+  <build>
+  	<plugins>
+  		<plugin>
+	  		<groupId>io.konig</groupId>
+	  		<artifactId>konig-model-merge-maven-plugin</artifactId>
+	  		<version>${konig.version}</version>
+	  		<configuration>
+	  			<artifactItems>
+	  				<artifactItem>
+	  					<groupId>com.example</groupId>
+	  					<artifactId>model-merge-organization-rdf-model</artifactId>
+	  					<version>1.0.0</version>
+	  				</artifactItem>
+	  				<artifactItem>
+	  					<groupId>com.example</groupId>
+	  					<artifactId>model-merge-person-rdf-model</artifactId>
+	  					<version>1.0.0</version>
+	  				</artifactItem>
+	  				<artifactItem>
+	  					<groupId>com.example</groupId>
+	  					<artifactId>model-merge-product-rdf-model</artifactId>
+	  					<version>1.0.0</version>
+	  				</artifactItem>
+	  			</artifactItems>
+	  		</configuration>
+	  		<executions>
+	  			<execution>
+		  			<phase>generate-sources</phase>
+		  			<goals>
+		  				<goal>merge</goal>
+		  			</goals>
+	  			</execution>
+	  		</executions>
+  		</plugin>
+  		
+ 			<plugin>
+        <groupId>io.konig</groupId>
+        <artifactId>konig-data-catalog-maven-plugin</artifactId>
+        <version>${konig.version}</version>
+        <configuration>
+          <rdfDir>${project.basedir}/target/model/merged/src/rdf</rdfDir>
+          <siteDir>${project.basedir}/target/generated/data-catalog</siteDir>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate-site</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>   		
+  		
+  	</plugins>
+  </build>
+</project>

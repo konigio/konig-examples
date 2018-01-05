@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.konig.examples</groupId>
+  <artifactId>merge-person</artifactId>
+  <version>1.0.0</version>
+  <name>Merge Person</name>
+  
+  <properties>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+  	<konig.version>2.0.0-8-SNAPSHOT</konig.version>
+  </properties>
+  
+  
+  <build>
+  	<sourceDirectory>${basedir}/target/generated/src/main/java</sourceDirectory>
+  	<plugins>
+  		<plugin>
+	  		<groupId>io.konig</groupId>
+	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
+	  		<version>${konig.version}</version>
+	  		<configuration>
+	  			<multiProject>
+	  			
+	  				<baseDir>${basedir}/target/generated/projects</baseDir>
+	  				<groupId>com.example</groupId>
+	  				<artifactId>model-merge-person</artifactId>
+	  				<version>1.0.0</version>
+	  				<name>Model Merge Person</name>
+	  				<konigVersion>${konig.version}</konigVersion>
+	  				<autoBuild>true</autoBuild>
+	  				
+	  				<workbook>
+	  					<workbookFile>${basedir}/src/merge-person.xlsx</workbookFile>
+	  				</workbook>
+	  				<dataCatalog>
+	  					<contentSystem>
+	  						<baseURL>https://pearson-docs.appspot.com/content/</baseURL>
+	  						<bundleName>demo</bundleName>
+	  						<bundleVersion>1.0.0</bundleVersion>
+	  					</contentSystem>
+	  				</dataCatalog>
+	  			</multiProject>
+	  		</configuration>
+	  		<executions>
+	  			<execution>
+		  			<phase>generate-sources</phase>
+		  			<goals>
+		  				<goal>generate</goal>
+		  			</goals>
+	  			</execution>
+	  		</executions>
+  		</plugin>
+  		
+  		
+  		
+  	</plugins>
+  </build>
+</project>
