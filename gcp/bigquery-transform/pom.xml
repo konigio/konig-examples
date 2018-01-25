@@ -8,7 +8,7 @@
   <properties>
     <maven.compiler.target>1.7</maven.compiler.target>
     <maven.compiler.source>1.7</maven.compiler.source>
-  	<konig.version>2.0.0-8</konig.version>
+  	<konig.version>2.0.0-8-SNAPSHOT</konig.version>
   </properties>
   
    <dependencies>
