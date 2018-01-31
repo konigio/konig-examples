@@ -248,6 +248,7 @@ shape:ThingShape a sh:Shape ;
 The Google cloud Platform uses JSON descriptions for its resources.
 
 This example generates the following files.
+
 --------------------------------------------------
 #### File: `target/generated/gcp/cloudsql/instances/kitchen.json`
 ```
