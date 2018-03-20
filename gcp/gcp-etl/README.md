@@ -43,7 +43,7 @@ from("pubsub:{{pubsub.projectId}}:{{pubsub.subscription}}?"
     + "concurrentConsumers={{consumer.concurrentConsumers}}")
     .routeId("fromGooglePubSub")
     .filter(method("pubsubAttributeReader", "getEventType").isEqualTo("OBJECT_FINALIZE"))
-    .unmarshal().json(JsonLibrary.Jackson)
+    .unmarshal().json(JsonLibrary.Jackson, Map.class)
     .log("FILE ${body[name]}")
     .to("stream:out");
 ```

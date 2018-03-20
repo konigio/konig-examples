@@ -4,6 +4,8 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**
  * @author szednik
  */
@@ -18,7 +20,7 @@ public class EtlController extends RouteBuilder {
                 + "concurrentConsumers={{consumer.concurrentConsumers}}")
                 .routeId("fromGooglePubSub")
                 .filter(method("pubsubAttributeReader", "getEventType").isEqualTo("OBJECT_FINALIZE"))
-                .unmarshal().json(JsonLibrary.Jackson)
+                .unmarshal().json(JsonLibrary.Jackson, Map.class)
                 .log("FILE ${body[name]}")
                 .to("stream:out");
 
