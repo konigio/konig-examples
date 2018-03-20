@@ -20,7 +20,6 @@ Comment out `credentials.account` and `credentials.key` in application.propertie
 
 Set `credentials.account` to the service account email and `credentials.key` to the service account key.
 
-
 # Run
 
 To run execute the following command:
@@ -28,3 +27,25 @@ To run execute the following command:
 ```bash
 $ mvn spring-boot:run
 ```
+
+# What it does
+
+Spring-boot is used to start an Apache Camel route that 
+- listens for notifications on the pubsub topic via the ``pubsub.subscription`` subscription
+- filters out messages that do not have eventType `OBJECT_FINALIZE` in their header attributes
+- converts the message body to a Java Map
+- logs the value of the ``name`` field from the message body
+- prints the entire message body to std:out
+
+```java
+from("pubsub:{{pubsub.projectId}}:{{pubsub.subscription}}?"
+    + "maxMessagesPerPoll={{consumer.maxMessagesPerPoll}}&"
+    + "concurrentConsumers={{consumer.concurrentConsumers}}")
+    .routeId("fromGooglePubSub")
+    .filter(method("pubsubAttributeReader", "getEventType").isEqualTo("OBJECT_FINALIZE"))
+    .unmarshal().json(JsonLibrary.Jackson)
+    .log("FILE ${body[name]}")
+    .to("stream:out");
+```
+
+note - see https://cloud.google.com/storage/docs/pubsub-notifications for more information on attributes used with Google Cloud Storage Notifications.
