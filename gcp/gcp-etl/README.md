@@ -11,10 +11,14 @@ A topic and subscription need to be created and the topic and subscription name 
 Additionally, this project requires a google cloud bucket that has been configured to send object changes notifications to the topic.  To configure a bucket to send notifications to a pubsub topic, see https://cloud.google.com/storage/docs/reporting-changes.
 
 For authenticating against Google Cloud one of the following options can be used:
-Using your default credentials::
-  Comment out `credentials.account` and `credentials.key` in application.properties.
-Using an account and key::
-  Set `credentials.account` to the service account email and `credentials.key` to the service account key.
+
+**_Using your default credentials_**
+
+Comment out `credentials.account` and `credentials.key` in application.properties.
+
+**_Using an account and key_**
+
+Set `credentials.account` to the service account email and `credentials.key` to the service account key.
 
 
 # Run
