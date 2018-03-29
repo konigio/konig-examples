@@ -49,3 +49,19 @@ from("pubsub:{{pubsub.projectId}}:{{pubsub.subscription}}?"
 ```
 
 note - see https://cloud.google.com/storage/docs/pubsub-notifications for more information on attributes used with Google Cloud Storage Notifications.
+
+# Docker
+
+This project can be used to build docker images for running a containerized version of the spring boot application.
+
+To build a new docker image with maven
+```bash
+mvn install dockerfile:build
+```
+
+running the application with docker:
+```bash
+docker run konig-examples/gcp-etl
+```
+
+Additional documentation for building docker images for running spring boot applications is available at https://spring.io/guides/gs/spring-boot-docker/ .
