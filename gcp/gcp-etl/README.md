@@ -54,14 +54,12 @@ note - see https://cloud.google.com/storage/docs/pubsub-notifications for more i
 
 This project can be used to build docker images for running a containerized version of the spring boot application.
 
-To build a new docker image 
-
+To build a new docker image with maven
 ```bash
 mvn install dockerfile:build
 ```
 
-running the docker container:
-
+running the application with docker:
 ```bash
 docker run konig-examples/gcp-etl
 ```
