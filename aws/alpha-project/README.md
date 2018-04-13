@@ -207,7 +207,7 @@ For each routes the demo-parent will generate separate maven project
  	
  2. To push the child image to AWS ECR
  	
- As mentioned in the "Docker Images" for each routes the demo-parent will generate separate maven project.
+ 	As mentioned in the "Docker Images" for each routes the demo-parent will generate separate maven project.
  	
  	```
  	mvn docker:build
@@ -217,7 +217,7 @@ For each routes the demo-parent will generate separate maven project
  	
  3. Run the groovy script in demo-aws-model to deploy the cloud formation template and deploy the tables to the aws aurora
  	
- Configure the property file either in System Enviroment as KONIG_DEPLOY_CONFIG or System property as 'konig.deploy.config' 
+	Configure the property file either in System Enviroment as KONIG_DEPLOY_CONFIG or System property as 'konig.deploy.config' 
  	
  	```
  	groovy:execute
