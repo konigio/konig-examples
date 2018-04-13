@@ -236,7 +236,7 @@ For each routes the demo-parent will generate separate maven project
  	
  	Error : service {serviceName} (port 80) is unhealthy in target-group {targetGroupName} due to (reason Request timed out).
  	
- Run the images in local
+ 	Run the images in local
  	
  	```
  	docker run ${aws-account-id}.dkr.ecr.${aws-region}.amazonaws.com/{repositoryName}:{imageTag}
