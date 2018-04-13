@@ -86,17 +86,17 @@ The AWS Model will generate the below resources in the output directory target/g
 	
 	The stacks which includes the below
 	
-	VPC
-	Subnet
-	ECSCluster
-	LoadBalancer
-	RDS DBCluster
-	RDS DBInstance
-	S3 Bucket
-	SNS Topic
-	SQS Queue
-	ECS TaskDefinition
-	ECS	Service 
+	VPC,
+	Subnet,
+	ECSCluster,
+	LoadBalancer,
+	RDS DBCluster,
+	RDS DBInstance,
+	S3 Bucket,
+	SNS Topic,
+	SQS Queue,
+	ECS TaskDefinition,
+	ECS Service 
 	
 	By default, this output directory shall be located at target/generated/aws/cloudformationtemplate
 	
@@ -199,9 +199,7 @@ For each routes the demo-parent will generate separate maven project
  	
  	```
  	mvn docker:build --DenvirontmentVariables
- 	```
  	
- 	```
  	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push 
  	```
  	
@@ -213,9 +211,7 @@ For each routes the demo-parent will generate separate maven project
  	
  	```
  	mvn docker:build
- 	```
  	
- 	```
  	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push 
  	```
  	
