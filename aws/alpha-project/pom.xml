@@ -34,7 +34,7 @@
 	  				<version>1.0.0</version>
 	  				<name>Demo</name>
 	  				<konigVersion>${konig.version}</konigVersion>
-	  				
+	  				<autoBuild>true</autoBuild>
 	  				<workbook>
 	  					<workbookFile>${basedir}/src/aws-etl-alpha.xlsx</workbookFile>
 	  				</workbook>
