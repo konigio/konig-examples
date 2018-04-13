@@ -65,3 +65,45 @@ docker run konig-examples/gcp-etl
 ```
 
 Additional documentation for building docker images for running spring boot applications is available at https://spring.io/guides/gs/spring-boot-docker/ .
+
+# Running in GCP with Kubernetes
+
+Tag the docker image using the special GCP format
+```bash
+docker tag konig-examples/gcp-etl gcr.io/${project_id}/gcp-etl:v1
+```
+
+Push the docker image to the container repository associated with your GCP project
+```bash
+gcloud docker -- push gcr.io/${project_id}/gcp-etl:v1
+```
+
+Ensure you have kubectl installed on your dev machine
+```bash
+gcloud components install kubectl
+```
+
+Use the web GCP console to create a cluster.
+
+TODO - add screenshot
+
+Fetch credentials for use with kubectl
+```bash
+gcloud container clusters get-credentials --zone ${zone} ${cluster_name}
+```
+
+Deploy the application to your cluster using kubectl
+```bash
+kubectl run gcp-etl --image=gcr.io/${project_id}/gcp-etl:v1
+```
+
+you verify that it was deployed using the ``kubectl get pods`` command
+```bash
+kubectl get pods
+```
+
+output:
+```bash
+NAME                      READY     STATUS    RESTARTS   AGE
+gcp-etl-b45b6cbff-m52db   1/1       Running   0          37s
+```
