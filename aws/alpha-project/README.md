@@ -3,7 +3,7 @@
 
 ## The Semantic Model
 
-The semantic model is defined in the [alpha-project which can be found at [src/multi-project.xlsx](src/aws-etl-alpha.xlsx).
+The semantic model is defined in the alpha-project which can be found at [src/multi-project.xlsx](src/aws-etl-alpha.xlsx).
 
 ## The Master POM
 
@@ -186,16 +186,14 @@ The AWS Model will generate the below resources in the output directory target/g
  	Aws S3 Bucket
  	
 ### Docker Images
-
-	For each routes the demo-parent will generate separate maven project
-	
+For each routes the demo-parent will generate separate maven project
 	```
   	etl-{shapeLocalName}
 	```	
 	
 ### How to deploy
 
-	1. To push the base image to AWS ECR
+1. To push the base image to AWS ECR
 	
  	Module : konig-docker-aws-etl-base 
  	
@@ -207,11 +205,11 @@ The AWS Model will generate the below resources in the output directory target/g
  	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push 
  	```
  	
- 	It will generate repository name konig-docker-aws-etl-base with image tag as latest
+ It will generate repository name konig-docker-aws-etl-base with image tag as latest
  	
- 	2. To push the child image to AWS ECR
+ 2. To push the child image to AWS ECR
  	
- 	As mentioned in the "Docker Images" for each routes the demo-parent will generate separate maven project.
+ As mentioned in the "Docker Images" for each routes the demo-parent will generate separate maven project.
  	
  	```
  	mvn docker:build
@@ -221,9 +219,9 @@ The AWS Model will generate the below resources in the output directory target/g
  	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push 
  	```
  	
- 	3. Run the groovy script in demo-aws-model to deploy the cloud formation template and deploy the tables to the aws aurora
+ 3. Run the groovy script in demo-aws-model to deploy the cloud formation template and deploy the tables to the aws aurora
  	
- 	Configure the property file either in System Enviroment as KONIG_DEPLOY_CONFIG or System property as 'konig.deploy.config' 
+ Configure the property file either in System Enviroment as KONIG_DEPLOY_CONFIG or System property as 'konig.deploy.config' 
  	
  	```
  	groovy:execute
@@ -231,23 +229,23 @@ The AWS Model will generate the below resources in the output directory target/g
  	
 ### Known Errors
  
- 	Still the CloudFormation failed to run the ECS Services
+ Still the CloudFormation failed to run the ECS Services
  	
- 	Check the logs in the below
+ Check the logs in the below
  	
- 	1. Please login in to the AWS Cloud
- 	2. Search for ECS and Click the Clusters
- 	3. Select the create cluster and click the created service 
- 	4. Click the Events tab to the logs
+ 1. Please login in to the AWS Cloud
+ 2. Search for ECS and Click the Clusters
+ 3. Select the create cluster and click the created service 
+ 4. Click the Events tab to the logs
  	
  	Error : service {serviceName} (port 80) is unhealthy in target-group {targetGroupName} due to (reason Request timed out).
  	
- 	Run the images in local
+ Run the images in local
  	
  	```
  	docker run ${aws-account-id}.dkr.ecr.${aws-region}.amazonaws.com/{repositoryName}:{imageTag}
  	```
  	
-	The repository name will the shape name and image tag will be "latest" as default
+The repository name will the shape name and image tag will be "latest" as default
 	
 	
