@@ -3,7 +3,7 @@
 
 ## The Semantic Model
 
-The semantic model is defined in the alpha-project which can be found at [src/multi-project.xlsx](src/aws-etl-alpha.xlsx).
+The semantic model is defined in the alpha-project which can be found at [src/aws-etl-alpha.xlsx](src/aws-etl-alpha.xlsx).
 
 ## The Master POM
 
