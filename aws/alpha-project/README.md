@@ -229,7 +229,7 @@ The AWS Model will generate the below resources in the output directory target/g
  	groovy:execute
  	```
  	
- ### Known Errors
+### Known Errors
  
  	Still the CloudFormation failed to run the ECS Services
  	
@@ -247,6 +247,7 @@ The AWS Model will generate the below resources in the output directory target/g
  	```
  	docker run ${aws-account-id}.dkr.ecr.${aws-region}.amazonaws.com/{repositoryName}:{imageTag}
  	```
+ 	
 	The repository name will the shape name and image tag will be "latest" as default
 	
 	
