@@ -212,7 +212,7 @@ For each routes the demo-parent will generate separate maven project
  	```
  	mvn docker:build
  	
- 	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push 
+ 	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push -Daws-account-id=${aws-account-id} -Daws-region=${aws-region}
  	```
  	
  3. Run the groovy script in demo-aws-model to deploy the cloud formation template and deploy the tables to the aws aurora
