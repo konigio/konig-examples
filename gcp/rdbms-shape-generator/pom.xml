@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.konig.examples</groupId>
+  <artifactId>rdbms-shape-generator</artifactId>
+  <version>1.0.0</version>
+  <name>Rdbms Shape Generator Demo</name>
+  
+  <properties>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+  	<konig.version>2.0.0-8-SNAPSHOT</konig.version>
+  </properties>
+  
+   <dependencies>
+  
+		<dependency>
+			<groupId>io.konig</groupId>
+			<artifactId>konig-java</artifactId>
+			<version>${konig.version}</version>
+		</dependency>  
+	</dependencies>
+  <build>
+  	<sourceDirectory>${basedir}/target/generated/src/main/java</sourceDirectory>
+  	<plugins>
+  		<plugin>
+	  		<groupId>io.konig</groupId>
+	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
+	  		<version>${konig.version}</version>
+	  		<configuration>
+	  			<multiProject>
+	  			
+	  				<baseDir>${basedir}/../demo</baseDir>
+	  				<groupId>com.example</groupId>
+	  				<artifactId>demo</artifactId>
+	  				<version>1.0.0</version>
+	  				<name>Demo</name>
+	  				<konigVersion>${konig.version}</konigVersion>
+	  				
+	  				<workbook>
+	  				<workbookFile>${basedir}/src/rdbms-shape-generator.xlsx</workbookFile>
+		  				</workbook>
+	  				<jsonSchema>
+	  					<uriTemplate>http://example.com/json-schema/{shapeLocalName}</uriTemplate>
+	  				</jsonSchema>
+	  				<java>
+	  					<filter>
+	  						<exclude>
+	  							<namespaces>
+	  								<namespace>http://example.com/ns/alias/</namespace>
+	  							</namespaces>
+	  						</exclude>
+	  					</filter>
+	  				</java>
+	  				<googleCloudPlatform>
+	  					<dataServices/>
+	  					<deployment/>
+	  				</googleCloudPlatform>
+	  				<amazonWebServices > 
+	  				</amazonWebServices> 
+	  				<dataCatalog>
+	  					<contentSystem>
+	  						<baseURL>https://pearson-docs.appspot.com/content/</baseURL>
+	  						<bundleName>demo</bundleName>
+	  						<bundleVersion>1.0.0</bundleVersion>
+	  					</contentSystem>
+	  				</dataCatalog>
+	  			</multiProject>
+	  		</configuration>
+	  		<executions>
+	  			<execution>
+		  			<phase>generate-sources</phase>
+		  			<goals>
+		  				<goal>generate</goal>
+		  			</goals>
+	  			</execution>
+	  		</executions>
+  		</plugin>
+  		
+  		
+  		
+  	</plugins>
+  	<pluginManagement>
+  		<plugins>
+  			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+  			<plugin>
+  				<groupId>org.eclipse.m2e</groupId>
+  				<artifactId>lifecycle-mapping</artifactId>
+  				<version>1.0.0</version>
+  				<configuration>
+  					<lifecycleMappingMetadata>
+  						<pluginExecutions>
+  							<pluginExecution>
+  								<pluginExecutionFilter>
+  									<groupId>io.konig</groupId>
+  									<artifactId>
+  										konig-schemagen-maven-plugin
+  									</artifactId>
+  									<versionRange>
+  										[2.0.0-8-SNAPSHOT,)
+  									</versionRange>
+  									<goals>
+  										<goal>generate</goal>
+  									</goals>
+  								</pluginExecutionFilter>
+  								<action>
+  									<ignore></ignore>
+  								</action>
+  							</pluginExecution>
+  						</pluginExecutions>
+  					</lifecycleMappingMetadata>
+  				</configuration>
+  			</plugin>
+  		</plugins>
+  	</pluginManagement>
+  </build>
+</project>

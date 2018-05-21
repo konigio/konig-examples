@@ -3,7 +3,7 @@
 
 ## The Semantic Model
 
-The semantic model is defined in the alpha-project which can be found at [src/multi-project.xlsx](src/aws-etl-alpha.xlsx).
+The semantic model is defined in the alpha-project which can be found at [src/aws-etl-alpha.xlsx](src/aws-etl-alpha.xlsx).
 
 ## The Master POM
 
@@ -200,7 +200,7 @@ For each routes the demo-parent will generate separate maven project
  	```
  	mvn docker:build --DenvirontmentVariables
  	
- 	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push 
+ 	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push -Daws-account-id=${aws-account-id} -Daws-region=${aws-region}
  	```
  	
  It will generate repository name konig-docker-aws-etl-base with image tag as latest
@@ -210,9 +210,9 @@ For each routes the demo-parent will generate separate maven project
  	As mentioned in the "Docker Images" for each routes the demo-parent will generate separate maven project.
  	
  	```
- 	mvn docker:build
+ 	mvn docker:build -Daws-account-id=${aws-account-id} -Daws-region=${aws-region}
  	
- 	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push 
+ 	mvn io.konig:konig-aws-ecs-image-push-plugin:0.0.1-SNAPSHOT:push -Daws-account-id=${aws-account-id} -Daws-region=${aws-region}
  	```
  	
  3. Run the groovy script in demo-aws-model to deploy the cloud formation template and deploy the tables to the aws aurora
