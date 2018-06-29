@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.konig.examples</groupId>
+	<artifactId>tabular-shape-example</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>AWS RDBMS Shape Generator Demo</name>
+
+	<properties>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<konig.version>2.0.0-8-SNAPSHOT</konig.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>io.konig</groupId>
+			<artifactId>konig-java</artifactId>
+			<version>${konig.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<sourceDirectory>${basedir}/target/generated/src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>io.konig</groupId>
+				<artifactId>konig-schemagen-maven-plugin</artifactId>
+				<version>${konig.version}</version>
+				<configuration>
+					<multiProject>
+
+						<baseDir>${basedir}/target/generated/demo</baseDir>
+						<groupId>com.example</groupId>
+						<artifactId>demo</artifactId>
+						<version>1.0.0</version>
+						<name>Demo</name>
+						<konigVersion>${konig.version}</konigVersion>
+
+						<workbook>
+							<workbookFile>${basedir}/src/tabular-shape-example.xlsx</workbookFile>
+							<failOnErrors>true</failOnErrors>
+						</workbook>
+						<amazonWebServices></amazonWebServices>
+					</multiProject>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
