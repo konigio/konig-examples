@@ -38,16 +38,18 @@
 	  				<workbook>
 	  					<workbookFile>${basedir}/src/test.xlsx</workbookFile>
 	  				</workbook>
-					<viewShapeGenerator>
-						<shapeIriPattern>(.*)View$</shapeIriPattern>
-						<shapeIriReplacement>https://schema.pearson.com/shapes/$1Shape</shapeIriReplacement>
-						<propertyNamespace>http://schema.org/</propertyNamespace>
-						<viewFiles>
-							<fileset>
-								<directory>${basedir}/src/view</directory>
-							</fileset>
-						</viewFiles>
-					</viewShapeGenerator>
+          <tabularShapeGeneratorConfig>
+            <viewIriTemplate>
+              <iriPattern>(.*)View$</iriPattern>
+              <iriReplacement>https://schema.pearson.com/shapes/$1Shape</iriReplacement>
+            </viewIriTemplate>
+            <propertyNamespace>http://schema.org/</propertyNamespace>
+            <sqlFiles>
+              <fileset>
+                <directory>${project.basedir}/target/generated/aws/view</directory>
+              </fileset>
+            </sqlFiles>
+          </tabularShapeGeneratorConfig>
 	  			</multiProject>
 	  			
 	  		</configuration>
