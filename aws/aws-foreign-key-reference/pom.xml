@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.konig.examples</groupId>
+  <artifactId>sheet-download</artifactId>
+  <version>1.0.0</version>
+  <name>AWS Foreign Key Reference</name>
+  
+  <properties>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+  	<konig.version>2.0.0-8-SNAPSHOT</konig.version>
+  </properties>
+  
+   <dependencies>
+  
+		<dependency>
+			<groupId>io.konig</groupId>
+			<artifactId>konig-java</artifactId>
+			<version>${konig.version}</version>
+		</dependency>  
+	</dependencies>
+  <build>
+  	<sourceDirectory>${basedir}/target/generated/src/main/java</sourceDirectory>
+  	<plugins>
+  		<plugin>
+	  		<groupId>io.konig</groupId>
+	  		<artifactId>konig-google-download-maven-plugin</artifactId>
+	  		<version>${konig.version}</version>
+	  		<configuration>
+	  			<documentId>1mMZ2LzpaZ77M7PKMWBWSD8ggNzTRlBwXg082hg3zSKo</documentId>
+	  			<saveAs>${basedir}/target/generated/data-model.xlsx</saveAs>
+	  		</configuration>
+				<executions>
+	  			<execution>
+		  			<phase>generate-sources</phase>
+		  			<goals>
+		  				<goal>download</goal>
+		  			</goals>
+	  			</execution>
+	  		</executions>	  		
+	  	</plugin>
+  		<plugin>
+	  		<groupId>io.konig</groupId>
+	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
+	  		<version>${konig.version}</version>
+	  		<configuration>
+	  			<defaults>
+	  				<rootDir>${basedir}/target/generated</rootDir>
+	  			</defaults>
+	  			<workbook>
+		  			<workbookFile>${basedir}/target/generated/data-model.xlsx</workbookFile>
+		  			<failOnErrors>true</failOnErrors>
+	  			</workbook> 	
+	  			<amazonWebServices/>
+	  		</configuration>
+	  		<executions>
+	  			<execution>
+		  			<phase>generate-sources</phase>
+		  			<goals>
+		  				<goal>generate</goal>
+		  			</goals>
+	  			</execution>
+	  		</executions>
+  		</plugin>
+ 		
+ 			
+  		
+  	</plugins>
+  </build>
+</project>
