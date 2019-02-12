@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.konig.examples</groupId>
-  <artifactId>bigquery-transform</artifactId>
+  <artifactId>sheet-download</artifactId>
   <version>1.0.0</version>
-  <name>JSON IO</name>
+  <name>Nested Source Transform</name>
   
   <properties>
     <maven.compiler.target>1.7</maven.compiler.target>
     <maven.compiler.source>1.7</maven.compiler.source>
-  	<konig.version>2.0.0-8-SNAPSHOT</konig.version>
+  	<konig.version>2.2.0-SNAPSHOT</konig.version>
   </properties>
   
    <dependencies>
@@ -19,10 +19,26 @@
 			<version>${konig.version}</version>
 		</dependency>  
 	</dependencies>
-	
   <build>
   	<sourceDirectory>${basedir}/target/generated/src/main/java</sourceDirectory>
   	<plugins>
+  		<plugin>
+	  		<groupId>io.konig</groupId>
+	  		<artifactId>konig-google-download-maven-plugin</artifactId>
+	  		<version>${konig.version}</version>
+	  		<configuration>
+	  			<documentId>1SGKiBUEz9DqknbuB1tGILoQx9GIr7HW9I4Xmo6sOFrA</documentId>
+	  			<saveAs>${basedir}/target/generated/data-model.xlsx</saveAs>
+	  		</configuration>
+				<executions>
+	  			<execution>
+		  			<phase>generate-sources</phase>
+		  			<goals>
+		  				<goal>download</goal>
+		  			</goals>
+	  			</execution>
+	  		</executions>	  		
+	  	</plugin>
   		<plugin>
 	  		<groupId>io.konig</groupId>
 	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
@@ -32,11 +48,10 @@
 	  				<rootDir>${basedir}/target/generated</rootDir>
 	  			</defaults>
 	  			<workbook>
-		  			<workbookFile>${basedir}/src/bigquery-transform.xlsx</workbookFile>
-	  			</workbook>
-	  			<googleCloudPlatform>
-	  				<enumShapeNameTemplate>http://example.com/shapes/Bq{targetClass.localName}Shape</enumShapeNameTemplate>
-	  			</googleCloudPlatform>	  			
+		  			<workbookFile>${basedir}/target/generated/data-model.xlsx</workbookFile>
+		  			<failOnErrors>true</failOnErrors>
+	  			</workbook> 
+	  			<googleCloudPlatform/>
 	  		</configuration>
 	  		<executions>
 	  			<execution>
@@ -47,9 +62,7 @@
 	  			</execution>
 	  		</executions>
   		</plugin>
-  		
-  	
-  		
+ 		
  			<plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <version>2.5.3</version>
