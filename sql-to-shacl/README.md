@@ -2,7 +2,7 @@
 # Overview
 This example presents a recipe for generating SHACL NodeShape descriptions from a collection of SQL CREATE TABLE statements.
 
-For a gentle information to SHACL, see [SHACL Basics](http://kcoyle.blogspot.com/2015/10/shacl-shapes-constraint-language.html).
+For a gentle introduction to SHACL, see [SHACL Basics](http://kcoyle.blogspot.com/2015/10/shacl-shapes-constraint-language.html).
 For a deep dive into the SHACL specification, see the [W3C SHACL Recommendation](https://www.w3.org/TR/shacl/).
 
 The following list summarizes the key elements within this recipe
