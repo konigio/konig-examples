@@ -135,7 +135,13 @@ are `alias:given_name` and `alias:family_name`.
 
 In this example, the `alias` prefix is mapped to the `propertyNamespace` element within the POM.
 
+## Execute the Maven Build
 
+To run the tool, just run a normal Maven build, like this...
+
+```
+mvn clean install
+```
 
 
 
