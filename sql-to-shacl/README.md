@@ -1,9 +1,10 @@
+
+# Overview
 This example presents a recipe for generating SHACL NodeShape descriptions from a collection of SQL CREATE TABLE statements.
 
 For a gentle information to SHACL, see [SHACL Basics](http://kcoyle.blogspot.com/2015/10/shacl-shapes-constraint-language.html).
 For a deep dive into the SHACL specification, see the [W3C SHACL Recommendation](https://www.w3.org/TR/shacl/).
 
-# Overview
 The following list summarizes the key elements within this recipe
 
 1. Create a new project folder.
@@ -13,6 +14,8 @@ The following list summarizes the key elements within this recipe
 5. Execute the maven build
 
 We discuss these steps in more detail below.
+
+# Recipe
 
 ## Create a new project folder
 
