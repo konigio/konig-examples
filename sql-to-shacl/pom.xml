@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.konig.examples</groupId>
+  <artifactId>sql-to-shacl</artifactId>
+  <version>1.0.0</version>
+  <name>SQL DDL to SHACL</name>
+  <packaging>pom</packaging>
+  
+  <properties>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+  	<konig.version>2.4.0</konig.version>
+  </properties>
+  
+   <dependencies>
+  
+		<dependency>
+			<groupId>io.konig</groupId>
+			<artifactId>konig-java</artifactId>
+			<version>${konig.version}</version>
+		</dependency>  
+	</dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+	  		<groupId>io.konig</groupId>
+	  		<artifactId>konig-schemagen-maven-plugin</artifactId>
+	  		<version>${konig.version}</version>
+	  		<configuration>
+	  		  <rdfSourceDir>${basedir}/src/main/rdf</rdfSourceDir>
+		  		<rdf>
+		  		  <shapesDir>${basedir}/target/generated/rdf/shapes</shapesDir>
+		  		</rdf>
+	  			<config>
+	  			  <tableIriTemplate>
+	  			    <iriPattern>(^.*$)</iriPattern>
+	  			    <iriReplacement>https://schema.pearson.com/shapes/$1Shape</iriReplacement>
+	  			  </tableIriTemplate>
+	  			  <propertyNamespace>https://schema.pearson.com/ns/alias/</propertyNamespace>
+	  			  <sqlFiles>
+	  			    <fileSet>
+	  			      <directory>${basedir}/src/main/sql</directory>
+	  			      <includes>*.sql</includes>
+	  			    </fileSet>
+	  			  </sqlFiles>
+	  			</config>
+	  				
+	  		</configuration>
+	  		<executions>
+	  			<execution>
+		  			<phase>generate-sources</phase>
+		  			<goals>
+		  				<goal>generate</goal>
+		  			</goals>
+	  			</execution>
+	  		</executions>
+  		</plugin>
+ 		
+ 			
+  		
+  	</plugins>
+  </build>
+</project>

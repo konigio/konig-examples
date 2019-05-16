@@ -1,0 +1,13 @@
+@prefix konig: <http://www.konig.io/ns/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shape: <https://schema.pearson.com/shapes/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix alias: <https://schema.pearson.com/ns/alias/> .
+
+shape: a owl:Ontology ; 
+  vann:preferredNamespacePrefix "shape" ; 
+  rdfs:label "Pearson Data Shapes" ; 
+  rdfs:comment "The ontology for data shapes defined by Pearson" . 
