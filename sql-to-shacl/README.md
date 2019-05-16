@@ -8,7 +8,7 @@ The following list summarizes the key elements within this recipe
 
 1. Create a new project folder.
 2. Add the `*.sql` files containing your DDL to the folder at `src/main/sql`.  Make sure that your DDL files end with the `.sql` suffix.
-3. Create an RDF description (in Turtle syntax) of namespace that will hold the generated `NodeShape` descriptions.
+3. Create an RDF description (in Turtle syntax) of the namespace that will hold the generated `NodeShape` descriptions.
 4. Create a `pom.xml` file like the one in this project.
 5. Execute the maven build
 
